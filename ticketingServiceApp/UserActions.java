@@ -11,7 +11,7 @@ public class UserActions {
 	static void userAction(Scanner sc) {
 		try {
 			System.out.println("Please choose the action you want to perform from the below menu.");
-			System.out.println("1. New Admin User Registration\n2. Existing User Login\n3. Quit\n4. Display All Users");
+			System.out.println("1. New Admin User Registration\n2. Existing User Login\n3. Quit\n4. SuperAdminActions");
 			System.out.println("Enter the number(1 or 2) to perform the action");
 			int UserInput = sc.nextInt();
 			switch (UserInput) {
@@ -25,7 +25,8 @@ public class UserActions {
 				e.exit();
 				break;
 			case 4:
-				DisplayAllUsers.displayAllUsers(sc);
+				SuperAdminActions(sc);
+				break;
 			default:
 				userAction(sc);
 				break;
@@ -98,4 +99,73 @@ public class UserActions {
 		}
 	}
 
+	static void SuperAdminActions(Scanner sc) {
+		try {
+			int choice;
+			System.out.println();
+			System.out.println("----- Super Admin Actions -----");
+			System.out.println("Please choose the action you want to perform from the below menu.");
+			System.out.println(
+					"1. Become Super Admin\n2. Display All Users\n3. Display All Tickets\n4. Go to main menu\n5. Quit");
+			System.out.println("Enter the number(1 or 2) to perform the action - ");
+			choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				SuperAdmin.BecomeSuperAdmin(sc);
+				break;
+			case 2:
+				DisplayAll.displayAllUsers(sc);
+				break;
+			case 3:
+				DisplayAll.displayAllTickets(sc);
+				break;
+			case 4:
+				userAction(sc);
+				break;
+			case 5:
+				e.exit();
+				break;
+			default:
+				SuperAdminActions(sc);
+				break;
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input. Please enter a valid value.");
+			sc.nextLine();
+			SuperAdminActions(sc);
+		}
+	}
+
+	static void SuperAdminRoutes(Scanner sc) {
+		try {
+			int choice;
+			System.out.println();
+			System.out.println("----- Super Admin Actions -----");
+			System.out.println("Please choose the action you want to perform from the below menu.");
+			System.out.println("1. Display All Users\n2. Display All Tickets\n3. MainMenu\n4. Quit");
+			System.out.println("Enter the number(1 or 2) to perform the action - ");
+			choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				DisplayAll.displayAllUsers(sc);
+				break;
+			case 2:
+				DisplayAll.displayAllTickets(sc);
+				break;
+			case 3:
+				userAction(sc);
+				break;
+			case 4:
+				e.exit();
+				break;
+			default:
+				SuperAdminRoutes(sc);
+				break;
+			}
+		} catch (InputMismatchException e) {
+			System.out.println("Invalid input. Please enter a valid value.");
+			sc.nextLine();
+			SuperAdminRoutes(sc);
+		}
+	}
 }

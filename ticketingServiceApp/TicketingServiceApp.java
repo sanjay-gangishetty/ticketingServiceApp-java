@@ -2,8 +2,6 @@ package com.ABCTravels;
 
 import java.util.Scanner;
 
-
-
 public class TicketingServiceApp {
 
 	static DisplayLogo dl = new DisplayLogo();

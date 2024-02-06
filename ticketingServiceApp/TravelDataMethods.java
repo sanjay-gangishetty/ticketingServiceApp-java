@@ -6,6 +6,10 @@ import java.util.List;
 public class TravelDataMethods {
 
 	static List<TicketBooking> travelData = new ArrayList<TicketBooking>();
+	
+	public static List<TicketBooking> GetAllTickets() {
+		return travelData;
+	}
 
 	public static void AddTicket(TicketBooking ticket) {
 		travelData.add(ticket);

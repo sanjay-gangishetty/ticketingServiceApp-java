@@ -53,4 +53,28 @@ public class UsersMethods {
 		}
 	}
 
+//	If user SuperAdmin == 1, user is superAdmin and has crud operation permission
+	public static void BecomeSuperAdmin(String email, int key) {
+		for (UsersData user : users) {
+			if (email.equalsIgnoreCase(user.email)) {
+				System.out.println("Email Found");
+				if (key == 123) {
+					user.SuperAdmin = 1;
+					System.out.println(user.fname + " is Super Admin now.");
+				}
+			}
+		}
+	}
+
+	public static boolean SuperAdminFetch(String email) {
+		for (UsersData user : users) {
+			if (email.equalsIgnoreCase(user.email)) {
+				if (user.SuperAdmin == 1) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 }

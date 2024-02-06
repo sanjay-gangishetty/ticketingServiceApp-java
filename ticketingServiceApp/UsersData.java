@@ -3,7 +3,7 @@ package com.ABCTravels;
 public class UsersData {
 
 	String fname, lname, gender, email, password;
-	int failedCount, accountStatus;
+	int failedCount, accountStatus, SuperAdmin;
 	long mobileNo;
 
 //	Constructor
@@ -27,6 +27,7 @@ public class UsersData {
 		this.failedCount = failedCount;
 		this.accountStatus = accountStatus;
 		this.mobileNo = mobileNo;
+		this.SuperAdmin = 0;
 	}
 
 }

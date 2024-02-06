@@ -12,7 +12,7 @@ public class BillPrinter {
 	static int id = 0;
 
 //	Prints bill and calls userAction2 method 
-	static void billPrinter(Scanner sc, String source, int passengers, int price, String journeyDate) {
+	static void billPrinter(Scanner sc, String source, int passengers, int price, String journeyDate, UsersData user) {
 		try {
 			LocalDate formattedJourneyDate = LocalDate.parse(journeyDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 			DayOfWeek day = formattedJourneyDate.getDayOfWeek();
@@ -26,7 +26,7 @@ public class BillPrinter {
 			inclusiveGSTFare = exclusiveGSTFare + (((price * passengers) * 5) / 100);
 			id++;
 			TicketBooking t1 = new TicketBooking(source, journeyDate, day, passengers, inclusiveGSTFare, currentDate,
-					id);
+					id, user.email);
 //			Adds Ticket
 			TravelDataMethods.AddTicket(t1);
 			System.out.println("--------------ABC Travels--------------");
@@ -60,7 +60,7 @@ public class BillPrinter {
 		} catch (InputMismatchException e) {
 			System.out.println("Invalid input. Please enter a valid value.");
 			sc.nextLine();
-			billPrinter(sc, source, passengers, price, journeyDate);
+			billPrinter(sc, source, passengers, price, journeyDate, user);
 		}
 	}
 

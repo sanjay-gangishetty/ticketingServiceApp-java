@@ -69,7 +69,7 @@ public class LoginAndRegistration {
 							if (userData.failedCount < 5 && userData.accountStatus == 1) {
 								System.out.println("Welcome back " + userData.fname);
 								System.out.println();
-								JourneyPlanner.planJourney(sc);
+								JourneyPlanner.planJourney(sc, userData);
 							} else {
 								System.out.println("Your account has been locked for trying many times.");
 								System.out.println("Login with other account or create new one.");
